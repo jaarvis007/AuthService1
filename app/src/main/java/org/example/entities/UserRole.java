@@ -20,6 +20,6 @@ public class UserRole {
     @Id
     @Column(name="role_id")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long roleId;
-    private String name;ty
+    private String roleId;
+    private String name;
 }

@@ -20,7 +20,7 @@ import java.util.Set;
 public class UserInfo {
 
     @Id
-    @Column(name = "user_id") // ✅ Removed semicolon
+    @Column(name = "user_id")
     private String userId;
 
     private String username;
@@ -29,10 +29,9 @@ public class UserInfo {
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "users_roles",
-            joinColumns = @JoinColumn(name = "user_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id")
+            joinColumns = @JoinColumn(name = "user_id", referencedColumnName = "user_id", columnDefinition = "VARCHAR(255)"),
+            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "role_id", columnDefinition = "VARCHAR(255)")
     )
-
     private Set<UserRole> roles = new HashSet<>();
 
 
